@@ -42,7 +42,7 @@ async def process_csv_file(file: UploadFile = File(...)):
 
     # ── Return ZIP as download ───────────────────────────
     headers = {
-        "Content-Disposition": "attachment; filename=processed_output.zip",
+        "Content-Disposition": "inline; filename=processed_output.zip",
         "X-Total-Rows":        str(stats["total_rows"]),
         "X-Duplicate-Rows":    str(stats["duplicate_rows"]),
         "X-Unique-Rows":       str(stats["unique_rows"]),

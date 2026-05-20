@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.routers.csv_router import router as csv_router
 
 
@@ -11,6 +12,15 @@ app = FastAPI(
     - **duplicate_grouped.xlsx** → All duplicate values in a single column
     """,
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["X-Total-Rows", "X-Duplicate-Rows", "X-Unique-Rows"],
 )
 
 app.include_router(csv_router)
