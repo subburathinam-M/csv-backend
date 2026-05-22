@@ -627,10 +627,3 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 </div>
 '''
-
-with open('/mnt/agents/output/BACKEND_README.md', 'w', encoding='utf-8') as f:
-    f.write(backend_readme)
-
-print("BACKEND README created!")
-print(f"Size: {len(backend_readme)} chars")
-print("\nBoth files ready!")
