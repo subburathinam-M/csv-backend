@@ -118,6 +118,38 @@ Built with **FastAPI**, **Pandas**, and **Uvicorn**, this backend handles the he
 
 ---
 
+## 📊 System Architecture Flow
+
+```mermaid
+graph TD
+    A["🌐 User Uploads CSV"] --> B["⚛️ React Frontend"]
+    B --> C["📡 Axios POST Request"]
+    C --> D["🚀 FastAPI Backend"]
+    D --> E["📁 File Validation"]
+    E --> F["🐼 Pandas Processing"]
+    F --> G["🔍 Duplicate Detection"]
+    F --> H["✅ Unique Extraction"]
+    F --> I["📊 Grouped Analysis"]
+    G --> J["📦 ZIP Archive"]
+    H --> J
+    I --> J
+    J --> K["📥 Download Response"]
+    K --> L["💾 User Downloads Files"]
+
+    subgraph Frontend
+        B --> M["🎨 Vite Build"]
+        M --> N["📱 Responsive UI"]
+    end
+
+    subgraph Backend
+        D --> O["🔒 CORS Middleware"]
+        F --> P["⚡ Async Processing"]
+    end
+```
+
+---
+
+
 ## 🔄 How It Works
 
 ### Backend Data Flow
