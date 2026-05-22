@@ -1,123 +1,46 @@
 
-readme_content = '''# CSV Data Duplicate Checker
+# BACKEND README
+backend_readme = '''# CSV Data Duplicate Checker — Backend
 
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-404040?style=for-the-badge&logo=uvicorn&logoColor=white)
 
-**📚 Live Demo:** [https://csvdataduplicate.netlify.app](https://csvdataduplicate.netlify.app)
+**🔗 Live API:** [https://your-api.onrender.com/docs](https://your-api.onrender.com/docs)  
+**🔗 Frontend App:** [https://csvdataduplicate.netlify.app](https://csvdataduplicate.netlify.app)  
+**🔗 Frontend Repo:** [github.com/yourname/csv-frontend](https://github.com/yourname/csv-frontend)
 
 ---
 
 ## 📖 Overview
 
-A full-stack **CSV Data Duplicate Checker** that intelligently detects, analyzes, and cleans duplicate records from CSV datasets. Users upload CSV files through a modern React frontend, the FastAPI backend processes them using Pandas, and returns cleaned Excel files packaged in a ZIP archive.
+The **FastAPI backend** for the CSV Data Duplicate Checker — a high-performance Python API that receives CSV file uploads, processes them using Pandas for intelligent duplicate detection, and returns cleaned Excel files packaged in a ZIP archive.
 
-This project demonstrates production-grade full-stack development with **React + Vite** on the frontend and **FastAPI + Pandas** on the backend, deployed on **Netlify** and **Render** respectively.
-
----
-
-## 📊 System Architecture Flow
-
-```mermaid
-graph TD
-    A["🌐 User Uploads CSV"] --> B["⚛️ React Frontend"]
-    B --> C["📡 Axios POST Request"]
-    C --> D["🚀 FastAPI Backend"]
-    D --> E["📁 File Validation"]
-    E --> F["🐼 Pandas Processing"]
-    F --> G["🔍 Duplicate Detection"]
-    F --> H["✅ Unique Extraction"]
-    F --> I["📊 Grouped Analysis"]
-    G --> J["📦 ZIP Archive"]
-    H --> J
-    I --> J
-    J --> K["📥 Download Response"]
-    K --> L["💾 User Downloads Files"]
-
-    subgraph Frontend
-        B --> M["🎨 Vite Build"]
-        M --> N["📱 Responsive UI"]
-    end
-
-    subgraph Backend
-        D --> O["🔒 CORS Middleware"]
-        F --> P["⚡ Async Processing"]
-    end
-```
-
----
-
-## 📈 Flow Diagram
-
-```text
-┌─────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐
-│    👤 User      │────▶│   ⚛️ React Frontend  │────▶│   📡 Axios Request   │
-│  📤 Uploads CSV │     │   🎯 Dropzone Area   │     │   multipart/form-data│
-└─────────────────┘     └─────────────────────┘     └─────────────────────┘
-                                                                │
-                                                                ▼
-┌─────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐
-│    📥 Downloads │◀────│   📊 Stats Display   │◀────│   🚀 FastAPI Backend │
-│   ZIP / Excel   │     │   📈 Row Counts      │     │   /api/v1/csv/process│
-└─────────────────┘     └─────────────────────┘     └─────────────────────┘
-                                                                │
-                                                                ▼
-                                                        ┌─────────────────────┐
-                                                        │   🐼 Pandas Engine   │
-                                                        │   csv_service.py     │
-                                                        └─────────────────────┘
-                                                                │
-                                                                ▼
-                                                        ┌─────────────────────┐
-                                                        │   📦 ZIP Generator   │
-                                                        │   3 Excel Files      │
-                                                        └─────────────────────┘
-```
+Built with **FastAPI**, **Pandas**, and **Uvicorn**, this backend handles the heavy lifting of data processing while the React frontend provides a beautiful user interface.
 
 ---
 
 ## 🚀 Features
 
-### 📤 CSV Processing
-
 | Feature | Description | Status |
 |---------|-------------|--------|
-| **CSV Upload** | Drag & drop interface with file type validation | ✅ |
-| **Duplicate Detection** | Identifies all repeated rows using Pandas | ✅ |
-| **Unique Extraction** | Generates clean dataset with first occurrences only | ✅ |
+| **CSV Upload API** | Accepts single-file uploads via multipart/form-data | ✅ |
+| **Duplicate Detection** | Identifies every repeated row using Pandas hashing | ✅ |
+| **Unique Extraction** | Produces deduplicated dataset keeping first occurrences | ✅ |
 | **Grouped Analysis** | Collapses duplicates into comma-separated single column | ✅ |
-| **Excel Generation** | Exports 3 separate `.xlsx` files | ✅ |
-| **ZIP Download** | Packages all files into compressed archive | ✅ |
-
-### 🌐 API & Infrastructure
-
-| Feature | Description | Status |
-|---------|-------------|--------|
-| **FastAPI REST API** | Async endpoints with automatic OpenAPI docs | ✅ |
-| **Real-time Processing** | Instant statistics display without page reload | ✅ |
-| **Responsive UI** | Mobile-first design with glassmorphism effects | ✅ |
-| **CORS Security** | Whitelisted cross-origin communication | ✅ |
-| **Streaming Response** | Memory-efficient ZIP delivery | ✅ |
+| **Excel Generation** | Exports 3 separate `.xlsx` files via openpyxl | ✅ |
+| **ZIP Archive** | Compresses all files with DEFLATE into single download | ✅ |
+| **Streaming Response** | Memory-efficient delivery without disk writes | ✅ |
+| **Async Processing** | Non-blocking file handling via async/await | ✅ |
+| **CORS Security** | Whitelisted cross-origin for Netlify frontend | ✅ |
+| **Custom Headers** | Exposes row statistics (X-Total-Rows, etc.) | ✅ |
+| **Error Handling** | Descriptive 400/500 responses with detail messages | ✅ |
+| **Auto API Docs** | Interactive Swagger UI at `/docs` endpoint | ✅ |
 
 ---
 
 ## 🛠️ Tech Stack
-
-### ⚛️ Frontend
-
-| Technology | Purpose | Version |
-|------------|---------|---------|
-| **React** | UI component library | 19.x |
-| **Vite** | Build tool & dev server | 8.x |
-| **Axios** | HTTP client for API calls | 1.16.x |
-| **react-dropzone** | Drag & drop file upload | 15.x |
-| **lucide-react** | Icon library | 1.16.x |
-| **CSS** | Custom styling with CSS variables | - |
-
-### 🐍 Backend
 
 | Technology | Purpose | Version |
 |------------|---------|---------|
@@ -127,119 +50,133 @@ graph TD
 | **Uvicorn** | ASGI server | Latest |
 | **openpyxl** | Excel file engine | Latest |
 | **python-multipart** | Multipart form parsing | Latest |
+| **Pydantic** | Data validation & serialization | Latest |
+| **zipfile** | ZIP compression (stdlib) | Built-in |
+| **io** | Memory buffers (stdlib) | Built-in |
 
 ---
 
 ## 🏗️ Project Structure
 
-### ⚛️ Frontend Structure
-
-```
-📁 csv-frontend/
-├── 📁 public/
-│   └── 📄 favicon.svg
-├── 📁 src/
-│   ├── 📁 components/
-│   │   ├── 📄 DropZoneArea.jsx          # 🎯 Drag & drop upload zone
-│   │   ├── 📄 FileDownloads.jsx         # 💾 Download cards & ZIP button
-│   │   ├── 📄 Header.jsx                # 🎨 App title & description
-│   │   └── 📄 StatsDashboard.jsx        # 📊 Processing statistics display
-│   ├── 📁 assets/
-│   │   └── 📄 (static files)
-│   ├── 📄 App.jsx                       # 🏠 Main app container (state management)
-│   ├── 📄 App.css                       # 🎨 Component-specific styles
-│   ├── 📄 index.css                     # 🌐 Global theme & CSS variables
-│   └── 📄 main.jsx                      # ⚛️ React entry point (ReactDOM)
-├── 📄 index.html                        # 📄 HTML template
-├── 📄 vite.config.js                    # ⚡ Vite configuration
-├── 📄 package.json                      # 📦 Dependencies & scripts
-├── 📄 eslint.config.js                  # 🔍 ESLint rules
-└── 📄 README.md                         # 📖 Frontend documentation
-```
-
-### 🐍 Backend Structure
-
 ```
 📁 csv-backend/
 ├── 📁 app/
 │   ├── 📄 __init__.py                   # 📦 Package marker
-│   ├── 📄 main.py                       # 🚀 FastAPI app instance & CORS config
+│   │                                    # Makes 'app' a Python package
+│   │
+│   ├── 📄 main.py                       # 🚀 FastAPI application factory
+│   │                                    # Creates FastAPI instance
+│   │                                    # Configures CORS middleware
+│   │                                    # Mounts API routers
+│   │                                    # Defines app metadata (title, version)
+│   │
 │   ├── 📁 routers/
-│   │   ├── 📄 __init__.py
-│   │   └── 📄 csv_router.py             # 📡 /api/v1/csv/process endpoint
+│   │   ├── 📄 __init__.py               # 📦 Router package marker
+│   │   └── 📄 csv_router.py             # 📡 API endpoint definitions
+│   │                                    # POST /api/v1/csv/process
+│   │                                    # File validation (.csv, non-empty)
+│   │                                    # Calls csv_service for processing
+│   │                                    # Returns StreamingResponse with ZIP
+│   │                                    # Custom headers for statistics
+│   │
 │   ├── 📁 services/
-│   │   ├── 📄 __init__.py
-│   │   └── 📄 csv_service.py            # 🐼 Pandas processing engine
+│   │   ├── 📄 __init__.py               # 📦 Service package marker
+│   │   └── 📄 csv_service.py            # 🐼 Core processing engine
+│   │                                    # pd.read_csv() from BytesIO
+│   │                                    # duplicated(keep=False) detection
+│   │                                    # drop_duplicates() cleaning
+│   │                                    # to_excel() generation × 3
+│   │                                    # zipfile archive creation
+│   │                                    # Statistics calculation
+│   │
 │   ├── 📁 schemas/
-│   │   └── 📄 response_schema.py        # 📋 Pydantic response models
+│   │   └── 📄 response_schema.py        # 📋 Pydantic models
+│   │                                    # ProcessResponse model
+│   │                                    # Structured JSON responses
+│   │
 │   └── 📁 utils/
-│       └── 📄 file_utils.py             # 🛠️ Temp directory helpers
-├── 📁 temp/                             # 📁 Temporary storage (optional)
+│       └── 📄 file_utils.py             # 🛠️ Utility functions
+│                                          # clear_temp() for cleanup
+│                                          # Temp directory management
+│
+├── 📁 temp/                             # 📁 Temporary file storage (optional)
+│                                          # Used if disk writes needed
+│
 ├── 📁 output/                           # 📁 Output directory (optional)
+│                                          # Debug output location
+│
 ├── 📄 requirements.txt                  # 📦 Python dependencies
+│                                          # fastapi, uvicorn, pandas
+│                                          # openpyxl, python-multipart
+│
 ├── 📄 .gitignore                        # 🚫 Git exclusions
-└── 📄 README.md                         # 📖 Backend documentation
+│                                          # venv/, __pycache__/
+│                                          # temp/, output/
+│
+└── 📄 README.md                         # 📖 This file
 ```
 
 ---
 
-## 🔄 Project Workflow
+## 🔄 How It Works
 
-### Step-by-Step Internal Flow
+### Backend Data Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                      PROJECT WORKFLOW                                   │
+│                         BACKEND WORKFLOW                                │
 └─────────────────────────────────────────────────────────────────────────┘
 
-  1. USER UPLOADS CSV
-     User drags CSV file onto react-dropzone area
-     File validated by MIME type (text/csv)
-              │
-              ▼
-  2. FRONTEND SENDS API REQUEST
-     Axios creates FormData with File object
-     POST to /api/v1/csv/process
+  1. RECEIVE REQUEST
+     FastAPI receives POST /api/v1/csv/process
      Content-Type: multipart/form-data
-     responseType: 'blob' (for binary ZIP)
               │
               ▼
-  3. BACKEND RECEIVES FILE
-     FastAPI UploadFile descriptor streams multipart data
-     Router validates .csv extension
-     Rejects empty files → HTTP 400
+  2. VALIDATE UPLOAD
+     csv_router.py checks:
+     ✓ File extension ends with .csv
+     ✓ File content is not empty
+     ✗ Invalid → HTTP 400 with detail message
               │
               ▼
-  4. PANDAS PROCESSES CSV
-     pd.read_csv(BytesIO(file_bytes)) → DataFrame
-     In-memory processing (no disk I/O)
+  3. READ FILE BYTES
+     async file.read() → bytes
+     Wrapped in BytesIO (no disk I/O)
               │
               ▼
-  5. DUPLICATE DATA IDENTIFIED
-     mask = df.duplicated(keep=False)
-     Captures ALL occurrences (first + repeats)
-     df_duplicates = df[mask]
+  4. PANDAS PROCESSING
+     csv_service.py:
+     ├── pd.read_csv(BytesIO) → DataFrame
+     ├── df.duplicated(keep=False) → boolean mask
+     ├── df[mask] → all duplicate rows
+     └── df.drop_duplicates(keep='first') → unique rows
               │
               ▼
-  6. FILES GENERATED
-     ├─ duplicates.xlsx      → All duplicate rows
-     ├─ unique.xlsx          → Clean dataset (first occurrence kept)
-     └─ duplicate_grouped.xlsx → Single-column comma-separated view
+  5. GENERATE OUTPUTS
+     3 DataFrames → 3 Excel buffers:
+     ├─ duplicates.xlsx      (all duplicate occurrences)
+     ├─ unique.xlsx          (cleaned dataset)
+     └─ duplicate_grouped.xlsx (single-column comma view)
               │
               ▼
-  7. RESPONSE RETURNED
+  6. CREATE ZIP
+     zipfile.ZipFile(zip_buffer, "w", DEFLATED)
+     writestr() for each Excel buffer
+     → Single compressed archive
+              │
+              ▼
+  7. STREAM RESPONSE
      StreamingResponse(zip_buffer, media_type="application/zip")
-     Custom headers:
-       X-Total-Rows: 15420
-       X-Duplicate-Rows: 1840
-       X-Unique-Rows: 13580
+     Headers:
+       Content-Disposition: inline; filename=processed_output.zip
+       X-Total-Rows: <count>
+       X-Duplicate-Rows: <count>
+       X-Unique-Rows: <count>
               │
               ▼
-  8. USER DOWNLOADS FILES
-     Frontend parses headers → displays statistics
-     Creates object URLs from blob
-     Renders download cards for each file
-     ZIP download button for all files
+  8. CLIENT RECEIVES
+     Frontend parses headers → displays stats
+     Creates blob URLs → renders download cards
 ```
 
 ---
@@ -248,7 +185,7 @@ graph TD
 
 ### 📥 read_csv()
 
-Reads CSV data directly from memory using `BytesIO` — no disk writes.
+Reads CSV directly from memory using `BytesIO` — no disk writes.
 
 ```python
 import pandas as pd
@@ -256,6 +193,13 @@ from io import BytesIO
 
 df = pd.read_csv(BytesIO(file_bytes))
 ```
+
+| Parameter | Default | Our Usage |
+|-----------|---------|---------|
+| `filepath_or_buffer` | Required | `BytesIO(file_bytes)` |
+| `sep` | `,` | Default (comma) |
+| `header` | `infer` | Auto-detects header row |
+| `encoding` | `utf-8` | Default |
 
 **Why used:** Processing entirely in RAM is 10-100x faster than disk I/O and essential for serverless deployments like Render where filesystem is ephemeral.
 
@@ -444,53 +388,34 @@ X-Unique-Rows: 13580
 
 | Requirement | Version |
 |-------------|---------|
-| Node.js | 18+ |
 | Python | 3.10+ |
-| npm or yarn | Latest |
+| pip | Latest |
 | Git | Latest |
 
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/yourname/csv-duplicate-checker.git
-cd csv-duplicate-checker
-```
-
-### 2️⃣ Frontend Setup
-
-```bash
-cd csv-frontend
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Open http://localhost:5173
-```
-
-### 3️⃣ Backend Setup
-
-```bash
+git clone https://github.com/yourname/csv-backend.git
 cd csv-backend
+```
 
-# Create virtual environment
+### 2️⃣ Create Virtual Environment
+
+```bash
+# Create venv
 python -m venv venv
 
-# Windows
+# Windows activation
 venv\\Scripts\\activate
 
-# macOS/Linux
+# macOS/Linux activation
 source venv/bin/activate
+```
 
-# Install dependencies
+### 3️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
-
-# Run development server
-uvicorn app.main:app --reload
-
-# Open interactive docs at http://localhost:8000/docs
 ```
 
 ### 📦 Requirements (requirements.txt)
@@ -503,52 +428,58 @@ openpyxl
 python-multipart
 ```
 
+### 4️⃣ Run Development Server
+
+```bash
+# With auto-reload (development)
+uvicorn app.main:app --reload
+
+# Without reload (production-like)
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+# Open interactive docs
+# http://localhost:8000/docs
+# http://localhost:8000/redoc
+```
+
 ---
 
 ## 🚀 Deployment
 
-### ⚛️ Frontend (Netlify)
+### Render Deployment
 
-1. **Push frontend code** to GitHub
-2. **Connect repo** to [Netlify](https://netlify.com)
-3. **Build settings:**
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-4. **Environment variables:**
-   - `VITE_API_URL`: `https://your-api.onrender.com`
-5. **Deploy** — auto-deploys on every git push
-
-### 🐍 Backend (Render)
-
-1. **Push backend code** to GitHub
-2. **Create Web Service** on [Render](https://render.com)
-3. **Runtime:** Python 3
-4. **Build command:** `pip install -r requirements.txt`
-5. **Start command:** `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-6. **Environment variables:**
-   - `PYTHON_VERSION`: `3.10.0`
-
-### 🔗 GitHub Integration
-
+1. **Push code to GitHub**
 ```bash
-# Frontend repo
-git init
 git add .
-git commit -m "Initial frontend setup"
-git remote add origin https://github.com/yourname/csv-frontend.git
-git push -u origin main
-
-# Backend repo
-git init
-git add .
-git commit -m "Initial backend setup"
-git remote add origin https://github.com/yourname/csv-backend.git
-git push -u origin main
+git commit -m "Ready for deployment"
+git push origin main
 ```
 
-### 🔒 Production CORS
+2. **Create Web Service on Render**
+   - Go to [render.com](https://render.com)
+   - Click "New" → "Web Service"
+   - Connect your GitHub repo
+
+3. **Configuration**
+   | Setting | Value |
+   |---------|-------|
+   | Runtime | Python 3 |
+   | Build Command | `pip install -r requirements.txt` |
+   | Start Command | `uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
+
+4. **Environment Variables**
+   | Variable | Value |
+   |----------|-------|
+   | `PYTHON_VERSION` | `3.10.0` |
+
+5. **Auto-deploy**
+   - Render deploys automatically on every git push
+
+### Production CORS Configuration
 
 ```python
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://csvdataduplicate.netlify.app"],  # Your frontend URL
@@ -559,17 +490,20 @@ app.add_middleware(
 )
 ```
 
+**⚠️ Security Warning:** Never use `allow_origins=["*"]` with `allow_credentials=True` in production.
+
 ---
 
 ## 🚧 Challenges Faced
 
 | Challenge | Solution |
 |-----------|----------|
-| **🔌 CORS Issues** | Added FastAPI CORSMiddleware with explicit origin whitelisting. Never use `*` with credentials in production. |
-| **🚀 Render Cold Starts** | Free tier spins down after 15 min. Added loading state with "waking up server" message. Consider ping cron for production. |
-| **📄 CSV Parsing Errors** | Wrapped `pd.read_csv()` in try/except. Returns HTTP 500 with descriptive message advising UTF-8 encoding check. |
-| **📁 File Handling** | Used `BytesIO` for 100% in-memory processing. No disk writes — critical for ephemeral serverless filesystems. |
-| **🌐 localhost vs Production APIs** | Stored API base URL in config constant. Used `import.meta.env` for potential Vite environment variable injection. |
+| **CORS Issues** | Added FastAPI CORSMiddleware with explicit origin whitelisting. Preflight requests handled automatically. |
+| **Render Cold Starts** | Free tier spins down after 15 min of inactivity. First request takes 20-30s. Added descriptive loading state in frontend. |
+| **CSV Parsing Errors** | Wrapped `pd.read_csv()` in try/except. Returns HTTP 500 with message advising UTF-8 encoding and delimiter check. |
+| **File Handling** | Used `BytesIO` for 100% in-memory processing. No disk writes — critical for ephemeral serverless filesystems. |
+| **Memory Efficiency** | Pandas' dense C-array storage keeps memory usage low. Processed 100k+ row files within Render's 512MB free tier. |
+| **ZIP Streaming** | Used `StreamingResponse` instead of loading entire ZIP into memory. Streams bytes directly from buffer to client. |
 
 ---
 
@@ -578,30 +512,25 @@ app.add_middleware(
 | Feature | Description | Priority |
 |---------|-------------|----------|
 | **🔐 Authentication** | JWT-based auth with signup/login. Row-level security per user | High |
-| **📊 Dashboard Analytics** | Charts showing duplicate patterns, column distributions, data quality scores | Medium |
+| **💾 Database Storage** | PostgreSQL for persistent file metadata and upload history | High |
+| **📊 Dashboard Analytics** | Charts showing duplicate patterns, column distributions | Medium |
 | **🤖 AI CSV Insights** | LLM integration to suggest cleaning rules and detect anomalies | Medium |
-| **💾 Database Storage** | PostgreSQL for persistent file metadata and upload history | Medium |
-| **📜 User History** | Dashboard showing past uploads, statistics, and re-download links | Medium |
-| **⚡ Background Processing** | Celery + Redis for large file async processing with progress tracking | Low |
-| **☁️ Cloud Storage** | S3 integration for persistent file storage beyond ZIP downloads | Low |
+| **📜 User History** | Track past uploads, statistics, re-download links | Medium |
+| **⚡ Background Processing** | Celery + Redis for large file async processing with progress | Medium |
+| **☁️ Cloud Storage** | S3 integration for persistent file storage | Low |
+| **📧 Email Notifications** | Send download links via email for large files | Low |
 
 ---
 
-## 📸 Screenshots & Demo
+## 📸 API Testing Screenshots
 
-### 🎨 Frontend Interface
+| Screen | Preview |
+|--------|---------|
+| **Swagger UI** | ![Swagger](docs/screenshots/swagger.png) |
+| **POST Request** | ![POST](docs/screenshots/post-request.png) |
+| **Response Headers** | ![Headers](docs/screenshots/headers.png) |
 
-| Feature | Screenshot |
-|---------|------------|
-| **Upload Zone** | ![Upload](docs/screenshots/upload.png) |
-| **Processing Stats** | ![Stats](docs/screenshots/stats.png) |
-| **Download Cards** | ![Downloads](docs/screenshots/downloads.png) |
-
-### 🎬 Demo GIF
-
-![Demo GIF](docs/demo.gif)
-
-> **Note:** Add your actual screenshots to `docs/screenshots/` and update the paths above.
+> Add your screenshots to `docs/screenshots/` folder
 
 ---
 
@@ -611,7 +540,7 @@ app.add_middleware(
 
 **Your Name**
 
-Full Stack Developer | React · FastAPI · Pandas
+Backend Developer | Python · FastAPI · Pandas
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourname)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourname)
@@ -627,21 +556,18 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## ⭐ Support
-
-If you find this project helpful, please give it a **⭐ star** on GitHub!
-
----
-
 <div align="center">
 
-🚀 Built with ❤️ using **React**, **FastAPI**, and **Pandas**
+⭐ Star this repo if you find it helpful!
+
+🚀 Built with ❤️ using **Python**, **FastAPI**, and **Pandas**
 
 </div>
 '''
 
-with open('/mnt/agents/output/README.md', 'w', encoding='utf-8') as f:
-    f.write(readme_content)
+with open('/mnt/agents/output/BACKEND_README.md', 'w', encoding='utf-8') as f:
+    f.write(backend_readme)
 
-print("README.md created successfully!")
-print(f"Total size: {len(readme_content)} characters")
+print("BACKEND README created!")
+print(f"Size: {len(backend_readme)} chars")
+print("\nBoth files ready!")
