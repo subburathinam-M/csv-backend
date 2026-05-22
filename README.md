@@ -8,11 +8,10 @@
 ![Uvicorn](https://img.shields.io/badge/Uvicorn-404040?style=for-the-badge&logo=uvicorn&logoColor=white)
 
 **🔗 Live API:** [https://your-api.onrender.com/docs](https://your-api.onrender.com/docs)  
-**🔗 Documentation Site:** [https://subburathinam-m.github.io/csv-processor-docs/](https://subburathinam-m.github.io/csv-processor-docs/)
-
-**🔗 Frontend App:** [https://csvdataduplicate.netlify.app](https://csvdataduplicate.netlify.app)  
-**🔗 Frontend Repo:** [github.com/subburathinam-M/csv-frontend](https://github.com/subburathinam-M/csv-frontend)
-**🔗 Documentation Repo:** [https://github.com/subburathinam-M/csv-processor-docs](https://github.com/subburathinam-M/csv-processor-docs)
+**🔗 Documentation Site:** [https://subburathinam-m.github.io/csv-processor-docs/](https://subburathinam-m.github.io/csv-processor-docs/)  
+**🔗 Frontend App:** [https://csvdataduplicate.netlify.app](https://csvdataduplicate.netlify.app)   
+**🔗 Frontend Repo:** [github.com/subburathinam-M/csv-frontend](https://github.com/subburathinam-M/csv-frontend)  
+**🔗 Documentation Repo:** [https://github.com/subburathinam-M/csv-processor-docs](https://github.com/subburathinam-M/csv-processor-docs)  
 
 ---
 
