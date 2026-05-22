@@ -9,7 +9,7 @@
 
 **🔗 Live API:** [https://your-api.onrender.com/docs](https://your-api.onrender.com/docs)  
 **🔗 Frontend App:** [https://csvdataduplicate.netlify.app](https://csvdataduplicate.netlify.app)  
-**🔗 Frontend Repo:** [github.com/yourname/csv-frontend](https://github.com/yourname/csv-frontend)
+**🔗 Frontend Repo:** [github.com/subburathinam-M/csv-frontend](https://github.com/subburathinam-M/csv-frontend)
 
 ---
 
